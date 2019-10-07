@@ -31,7 +31,7 @@ app.use(
 
 app.use(async (ctx, next) => {
     ctx.requestId = UUID.v4();
-    next();
+    await next();
 });
 
 if (process.env.NODE_ENV === "development") {

@@ -4,20 +4,18 @@ var Router = require("koa-router");
 var router = new Router();
 
 const { getSQLResult } = require("../utils/Sql");
+const UserInfoDTO = require("../class/UserInfoDTO");
 
 router
     .get("/register", async (ctx, next) => {
         var sql = "SELECT * FROM UserInfo";
-        // ctx.body = {
-        //     id: ctx.requestId,
-        //     data: []
-        // };
-        const result = await getSQLResult(sql);
+        const result = (await getSQLResult(sql)) || [];
         ctx.status = 200;
-        console.log(result);
         ctx.body = {
             id: ctx.requestId,
-            data: result
+            data: result.map(item => {
+                return new UserInfoDTO(item);
+            })
         };
     })
     .get("/login", async (ctx, next) => {
