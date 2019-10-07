@@ -1,25 +1,27 @@
 var mysql = require("mysql");
 const { sqlConfig } = require("../config/sql.config");
-var pool = mysql.createPool(sqlConfig);
+const Logger = require("../utils/Logger");
+const pool = mysql.createPool(sqlConfig);
 
-pool.getConnection(function(err, connection) {
-  if (err) {
-    console.log(err);
-    return;
-  }
-  var sql = "SELECT * FROM websites";
-  //查
-  connection.query(sql, function(err, result) {
-    if (err) {
-      console.log("[SELECT ERROR] - ", err.message);
-      return;
-    }
-
-    console.log("--------------------------SELECT----------------------------");
-    console.log(result);
-    console.log(
-      "------------------------------------------------------------\n\n"
-    );
-  });
-  connection.release();
-});
+exports.getSQLResult = function(sql) {
+    return new Promise((resolve, reject) => {
+        Logger.info(sql);
+        pool.getConnection(function(err, connection) {
+            if (err) {
+                Logger.error("getConnection error", err);
+                reject(err);
+                return;
+            }
+            connection.query(sql, function(err, result) {
+                if (err) {
+                    Logger.error("[SELECT ERROR] - ", err.message);
+                    reject(err);
+                    return;
+                }
+                Logger.info(JSON.stringify(result));
+                resolve(result);
+            });
+            connection.release();
+        });
+    });
+};
