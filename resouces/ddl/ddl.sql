@@ -14,10 +14,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `UserInfo`;
 CREATE TABLE `UserInfo` (
   `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `createBy` varchar(32) NOT NULL COMMENT '创建人的用户id',
+  `createBy` varchar(36) NOT NULL COMMENT '创建人的用户id',
   `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
-  `updateBy` varchar(32) NOT NULL COMMENT '更新人的用户id',
-  `id` varchar(32) NOT NULL  COMMENT '用户信息表id',
+  `updateBy` varchar(36) NOT NULL COMMENT '更新人的用户id',
+  `id` varchar(36) NOT NULL  COMMENT '用户信息表id',
   `sId` varchar(64) NOT NULL  COMMENT '微信的唯一id',
   `name` varchar(32) NOT NULL  COMMENT '昵称',
   `headUrl` varchar(32) NOT NULL  COMMENT '用户头像url',
@@ -37,11 +37,11 @@ SELECT * FROM UserInfo;
 DROP TABLE IF EXISTS `AddressInfo`;
 CREATE TABLE `AddressInfo` (
   `createTime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `createBy` varchar(32) NOT NULL COMMENT '创建人的用户id',
+  `createBy` varchar(36) NOT NULL COMMENT '创建人的用户id',
   `updateTime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
-  `updateBy` varchar(32) NOT NULL COMMENT '更新人的用户id',
-  `id` varchar(32) NOT NULL  COMMENT '地址信息表id',
-  `parentId` varchar(32) NOT NULL  COMMENT '用户信息表的id',
+  `updateBy` varchar(36) NOT NULL COMMENT '更新人的用户id',
+  `id` varchar(36) NOT NULL  COMMENT '地址信息表id',
+  `parentId` varchar(36) NOT NULL  COMMENT '用户信息表的id',
   `name` varchar(32) NOT NULL  COMMENT '联系人名称',
   `telephpone` varchar(11) NOT NULL  COMMENT '手机号码',
   `area` varchar(200) NOT NULL  COMMENT '手机号码',
@@ -62,10 +62,10 @@ SELECT * FROM AddressInfo;
 DROP TABLE IF EXISTS `UserInfo`;
 CREATE TABLE `UserInfo` (
   `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `createBy` varchar(32) NOT NULL COMMENT '创建人的用户id',
+  `createBy` varchar(36) NOT NULL COMMENT '创建人的用户id',
   `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
-  `updateBy` varchar(32) NOT NULL COMMENT '更新人的用户id',
-  `id` varchar(32) NOT NULL  COMMENT '用户信息表id',
+  `updateBy` varchar(36) NOT NULL COMMENT '更新人的用户id',
+  `id` varchar(36) NOT NULL  COMMENT '用户信息表id',
   `sId` varchar(64) NOT NULL  COMMENT '微信的唯一id',
   `name` varchar(32) NOT NULL  COMMENT '昵称',
   `headUrl` varchar(32) NOT NULL  COMMENT '用户头像url',
@@ -85,10 +85,10 @@ SELECT * FROM UserInfo;
 DROP TABLE IF EXISTS `DrawInfo`;
 CREATE TABLE `DrawInfo` (
   `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `createBy` varchar(32) NOT NULL COMMENT '创建人的用户id',
+  `createBy` varchar(36) NOT NULL COMMENT '创建人的用户id',
   `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
-  `updateBy` varchar(32) NOT NULL COMMENT '更新人的用户id',
-  `id` varchar(32) NOT NULL  COMMENT '抽奖表id',
+  `updateBy` varchar(36) NOT NULL COMMENT '更新人的用户id',
+  `id` varchar(36) NOT NULL  COMMENT '抽奖表id',
   `drawType` varchar(32) NOT NULL DEFAULT 1  COMMENT '开奖方式(1 定时开奖，2 满人开奖，3 手动开奖)',
   `drawTime` datetime NOT NULL  COMMENT '开奖时间（为定时开奖等时候必填）',
   `personNum` int NOT NULL  COMMENT '开奖人数（为满人开奖等时候必填）',
@@ -110,11 +110,11 @@ SELECT * FROM DrawInfo;
 DROP TABLE IF EXISTS `AwardInfo`;
 CREATE TABLE `AwardInfo` (
   `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `createBy` varchar(32) NOT NULL COMMENT '创建人的用户id',
+  `createBy` varchar(36) NOT NULL COMMENT '创建人的用户id',
   `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
-  `updateBy` varchar(32) NOT NULL COMMENT '更新人的用户id',
-  `id` varchar(32) NOT NULL  COMMENT '奖品信息表id',
-  `parentId` varchar(32) NOT NULL  COMMENT '抽奖表的id',
+  `updateBy` varchar(36) NOT NULL COMMENT '更新人的用户id',
+  `id` varchar(36) NOT NULL  COMMENT '奖品信息表id',
+  `parentId` varchar(36) NOT NULL  COMMENT '抽奖表的id',
   `name` varchar(32) NOT NULL  COMMENT '奖品名称',
   `num` int NOT NULL  COMMENT '奖品数量',
   `type` varchar(1) NOT NULL DEFAULT 1  COMMENT '奖品类型(1 一等奖，2 二等奖，3 三等奖)',
@@ -134,10 +134,10 @@ SELECT * FROM AwardInfo;
 DROP TABLE IF EXISTS `ImageInfo`;
 CREATE TABLE `ImageInfo` (
   `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `createBy` varchar(32) NOT NULL COMMENT '创建人的用户id',
+  `createBy` varchar(36) NOT NULL COMMENT '创建人的用户id',
   `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
-  `updateBy` varchar(32) NOT NULL COMMENT '更新人的用户id',
-  `id` varchar(32) NOT NULL  COMMENT '图片信息表id',
+  `updateBy` varchar(36) NOT NULL COMMENT '更新人的用户id',
+  `id` varchar(36) NOT NULL  COMMENT '图片信息表id',
   `img` blob NOT NULL  COMMENT '图片地址',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
