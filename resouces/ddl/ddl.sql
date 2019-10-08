@@ -20,7 +20,7 @@ CREATE TABLE `UserInfo` (
   `id` varchar(36) NOT NULL  COMMENT '用户信息表id',
   `sId` varchar(64) NOT NULL  COMMENT '微信的唯一id',
   `name` varchar(32) NOT NULL  COMMENT '昵称',
-  `headUrl` varchar(32) NOT NULL  COMMENT '用户头像url',
+  `headUrl` varchar(36) NOT NULL  COMMENT '用户头像url',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
@@ -68,7 +68,7 @@ CREATE TABLE `UserInfo` (
   `id` varchar(36) NOT NULL  COMMENT '用户信息表id',
   `sId` varchar(64) NOT NULL  COMMENT '微信的唯一id',
   `name` varchar(32) NOT NULL  COMMENT '昵称',
-  `headUrl` varchar(32) NOT NULL  COMMENT '用户头像url',
+  `headUrl` varchar(36) NOT NULL  COMMENT '用户头像url',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
